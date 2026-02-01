@@ -250,6 +250,22 @@
             flex-wrap: wrap;
         }
 
+        .cta-buttons .btn {
+            min-width: 220px;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .cta-buttons .btn {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -554,6 +570,11 @@
             flex-wrap: wrap;
         }
 
+        .download-buttons .btn {
+            min-width: 220px;
+            justify-content: center;
+        }
+
         @media (max-width: 768px) {
             .download-buttons {
                 flex-direction: column;
@@ -642,6 +663,10 @@
             color: var(--text-secondary);
             overflow-x: auto;
             text-align: center;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+            line-height: 1.8;
         }
 
         .copy-btn {
@@ -683,7 +708,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.85rem;
+            font-size: 0.765rem;
             color: var(--text-secondary);
             font-weight: 400;
         }
@@ -759,7 +784,7 @@
 
         @media (max-width: 768px) {
             .footer-tagline.jj-mode {
-                margin-left: -70px;
+                margin-right: 25px;
                 transform: scale(0.75);
                 transform-origin: center top;
             }
