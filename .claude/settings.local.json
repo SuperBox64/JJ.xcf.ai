@@ -4,7 +4,9 @@
       "Bash(sips:*)",
       "Bash(ls:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(open:*)",
+      "mcp__xcf-server__build_project"
     ]
   }
 }
