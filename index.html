@@ -689,16 +689,38 @@
             color: var(--accent-cyan);
         }
 
-        .homebrew-install code {
-            display: block;
+        .code-copy-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
             background: rgba(0, 0, 0, 0.4);
             border-radius: 8px;
             padding: 14px 18px;
+        }
+
+        .homebrew-install code {
+            display: block;
+            flex: 1;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
             color: var(--text-secondary);
             overflow-x: auto;
             text-align: center;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            color: var(--accent-cyan);
         }
 
         .req-item .check {
@@ -942,27 +964,27 @@
                     <div class="check">✓</div>
                     <div class="text">
                         Xcode Tools
-                        <span>xcode-select --install</span>
+                        <span><code>xcode-select --install</code></span>
                     </div>
                 </div>
                 <div class="req-item">
                     <div class="check">✓</div>
                     <div class="text">
                         Go Lang
-                        <span>brew install go</span>
+                        <span><code>brew install go</code></span>
                     </div>
                 </div>
                 <div class="req-item">
                     <div class="check">✓</div>
                     <div class="text">
                         QuickJS
-                        <span>brew install quickjs</span>
+                        <span><code>brew install quickjs</code></span>
                     </div>
                 </div>
             </div>
             <div class="homebrew-install">
                 <p>Install <a href="https://brew.sh" target="_blank">Homebrew</a></p>
-<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>
+<div class="code-copy-wrapper"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code><button class="copy-btn" onclick="copyHomebrew()" title="Copy to clipboard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
             </div>
         </div>
     </section>
