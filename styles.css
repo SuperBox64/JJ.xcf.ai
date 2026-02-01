@@ -55,7 +55,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: ui-monospace, 'JetBrains Mono', monospace;
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--text-primary);
@@ -288,7 +288,7 @@
 
         .version-tag {
             margin-top: 32px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: ui-monospace, 'JetBrains Mono', monospace;
             font-size: 0.9rem;
             color: var(--text-secondary);
             text-align: center;
@@ -637,7 +637,7 @@
         .homebrew-install code {
             display: block;
             flex: 1;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: ui-monospace, 'JetBrains Mono', monospace;
             font-size: 0.8rem;
             color: var(--text-secondary);
             overflow-x: auto;
@@ -657,6 +657,10 @@
 
         .copy-btn:hover {
             color: var(--accent-cyan);
+        }
+
+        .req-item code {
+            font-family: ui-monospace, 'JetBrains Mono', monospace;
         }
 
         .req-item .check {
@@ -734,7 +738,7 @@
             position: relative;
             margin-left: -65px;
             height: 160px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: ui-monospace, 'JetBrains Mono', monospace;
             font-style: normal;
             color: #d7d7d9;
             font-size: 0.78rem;
@@ -798,7 +802,7 @@
             padding: 24px;
             margin-top: 40px;
             text-align: left;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: ui-monospace, 'JetBrains Mono', monospace;
             font-size: 0.9rem;
             overflow-x: auto;
         }
