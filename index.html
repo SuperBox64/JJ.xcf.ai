@@ -731,13 +731,70 @@
         .footer-tagline {
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.84rem;
             font-style: italic;
             margin-bottom: 32px;
             padding: 25px 0;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
+            cursor: default;
+            min-height: 5.5em;
+        }
+
+        .footer-tagline.scrambling {
+            animation: textGlow 0.3s ease;
+        }
+
+        .jj-copy-btn {
+            position: absolute;
+            top: 25px;
+            right: -107px;
+            z-index: 2;
+        }
+
+        .footer-tagline.jj-mode::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -140px;
+            width: 140px;
+            height: 100%;
+        }
+
+        .footer-tagline.jj-mode {
+            position: relative;
+            margin-left: -50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-style: normal;
+            color: #d4d4d4;
+            font-size: 0.78rem;
+            line-height: 1.5;
+            text-align: left;
+            white-space: pre;
+            display: inline-block;
+            font-variant-ligatures: none;
+            -webkit-font-variant-ligatures: none;
+        }
+
+        .footer-tagline .pk { color: #e879a0; font-weight: bold; }
+        .footer-tagline .gr { color: #22c55e; }
+        .footer-tagline .yl { color: #d4d04c; }
+        .footer-tagline .pr { color: #8b5cf6; }
+        .footer-tagline .wh { color: #d4d4d4; }
+
+        @keyframes textGlow {
+            0% { opacity: 1; filter: blur(0); }
+            50% { opacity: 0.3; filter: blur(2px); }
+            100% { opacity: 1; filter: blur(0); }
+        }
+
+        @media (max-width: 768px) {
+            .footer-tagline.jj-mode {
+                margin-left: 0;
+                transform: scale(0.75);
+                transform-origin: center top;
+            }
         }
 
         .footer-links {
@@ -985,7 +1042,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="footer-tagline">JJ is largely unfinished and will be expanded over time, for now you can use BattleScript to transpile existing built-in JJ examples to 10 other languages. You can even go into "edit" mode or any other language to write and learn a human lang. JJ and BattleScript is here to stay.</p>
+            <p class="footer-tagline" id="footer-tagline" data-human="JJ is largely unfinished and will be expanded over time, for now you can use BattleScript to transpile existing built-in JJ examples to 10 other languages. You can even go into &quot;edit&quot; mode or any other language to write and learn a human lang. JJ and BattleScript is here to stay.">JJ is largely unfinished and will be expanded over time, for now you can use BattleScript to transpile existing built-in JJ examples to 10 other languages. You can even go into "edit" mode or any other language to write and learn a human lang. JJ and BattleScript is here to stay.</p>
             <div class="footer-links">
                 <a href="https://github.com/SuperBox64/JibberJabber" target="_blank">GitHub</a>
                 <a href="https://github.com/SuperBox64/JibberJabber/issues" target="_blank">Issues</a>
@@ -1007,15 +1064,112 @@
         });
     }
     function copyHomebrew() {
-        var text = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"';
-        navigator.clipboard.writeText(text).then(function() {
-            var btn = document.querySelector('.copy-btn');
-            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-            setTimeout(function() {
-                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
-            }, 2000);
-        });
+        copyText('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"');
     }
+    (function() {
+        var el = document.getElementById('footer-tagline');
+        var isJJ = false;
+        var animating = false;
+        var humanText = el.getAttribute('data-human');
+        function buildJJ() {
+            var frag = document.createDocumentFragment();
+            function add(text, color) {
+                var span = document.createElement('span');
+                span.textContent = text;
+                if (color) span.style.color = color;
+                frag.appendChild(span);
+            }
+            var pk = '#e879a0';
+            var yl = '#d4d04c';
+            var gr = '#22c55e';
+            var pr = '#8b5cf6';
+            // line 1
+            add('<~morph{', pk);
+            add('fib(n)');
+            add('}>>', pk);
+            add('\n');
+            // line 2
+            add('  ');
+            add('<~when{', pk);
+            add('n');
+            add(' <lt> ');
+            add('#2', yl);
+            add('}>>', pk);
+            add('\n');
+            // line 3
+            add('    ');
+            add('~>yeet', pk);
+            add('{n}');
+            add('\n');
+            // line 4
+            add('  ');
+            add('<~>>', pk);
+            add('\n');
+            // line 5
+            add('  ');
+            add('~>yeet', pk);
+            add('{(');
+            add('~>invoke', pk);
+            add('{fib}');
+            add('::', gr);
+            add('with', pr);
+            add('(n <-> ');
+            add('#1', yl);
+            add(')) <+> (');
+            add('~>invoke', pk);
+            add('{fib}');
+            add('::', gr);
+            add('with', pr);
+            add('(n <-> ');
+            add('#2', yl);
+            add('))}');
+            add('\n');
+            // line 6
+            add('<~>>', pk);
+
+            // copy button
+            var btn = document.createElement('button');
+            btn.className = 'copy-btn jj-copy-btn';
+            btn.title = 'Copy to clipboard';
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+            btn.onclick = function() {
+                var jjPlain = '<~morph{fib(n)}>>\n  <~when{n <lt> #2}>>\n    ~>yeet{n}\n  <~>>\n  ~>yeet{(~>invoke{fib}::with(n <-> #1)) <+> (~>invoke{fib}::with(n <-> #2))}\n<~>>';
+                navigator.clipboard.writeText(jjPlain).then(function() {
+                    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+                    setTimeout(function() {
+                        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+                    }, 2000);
+                });
+            };
+            frag.appendChild(btn);
+            return frag;
+        }
+        function scramble(useJJ) {
+            if (animating) return;
+            animating = true;
+            el.classList.add('scrambling');
+            setTimeout(function() {
+                el.textContent = '';
+                if (useJJ) {
+                    el.appendChild(buildJJ());
+                    el.classList.add('jj-mode');
+                } else {
+                    el.textContent = humanText;
+                    el.classList.remove('jj-mode');
+                }
+                el.classList.remove('scrambling');
+                animating = false;
+            }, 300);
+        }
+
+        el.addEventListener('mouseenter', function() {
+            if (!isJJ) { isJJ = true; scramble(true); }
+        });
+
+        el.addEventListener('mouseleave', function() {
+            if (isJJ) { isJJ = false; scramble(false); }
+        });
+    })();
     </script>
 </body>
 </html>
