@@ -375,9 +375,15 @@
         }
 
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 24px;
+        }
+
+        .feature-card {
+            flex: 0 1 calc(50% - 12px);
+            min-width: 300px;
         }
 
         .feature-card {
