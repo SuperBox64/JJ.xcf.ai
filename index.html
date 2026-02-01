@@ -161,6 +161,12 @@
             transition: all 0.3s ease;
         }
 
+        @media (max-width: 1000px) {
+            .nav-home {
+                display: none;
+            }
+        }
+
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
@@ -434,6 +440,7 @@
         /* BattleScript IDE Section */
         .ide-showcase {
             padding: 0 0 50px;
+            scroll-margin-top: 70px;
         }
 
         .ide-showcase .section-header h2 {
@@ -742,8 +749,12 @@
             height: 160px;
         }
 
+        .footer-tagline {
+            transition: opacity 0.2s ease-in-out;
+        }
+
         .footer-tagline.scrambling {
-            animation: textGlow 0.3s ease;
+            opacity: 0;
         }
 
         .jj-copy-btn {
@@ -784,10 +795,10 @@
         .footer-tagline .pr { color: #8b5cf6; }
         .footer-tagline .wh { color: #d4d4d4; }
 
-        @keyframes textGlow {
-            0% { opacity: 1; filter: blur(0); }
-            50% { opacity: 0.3; filter: blur(2px); }
-            100% { opacity: 1; filter: blur(0); }
+        @keyframes textFade {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         @media (max-width: 768px) {
@@ -868,6 +879,8 @@
                 <span></span>
             </div>
             <ul class="nav-links">
+                <li class="nav-home"><a href="#">Home</a></li>
+                <li><a href="#ide">IDE</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#languages">Languages</a></li>
                 <li><a href="#download">Download</a></li>
@@ -902,7 +915,7 @@
     </section>
 
     <!-- BattleScript IDE Section -->
-    <section class="ide-showcase">
+    <section class="ide-showcase" id="ide">
         <div class="container">
             <div class="section-header">
                 <h2>Introducing BattleScript IDE</h2>
@@ -1045,6 +1058,8 @@
         <div class="container">
             <p class="footer-tagline" id="footer-tagline" data-human="JJ is largely unfinished and will be expanded over time, for now you can use BattleScript to transpile existing built-in JJ examples to 10 other languages. You can even go into &quot;edit&quot; mode or any other language to write and learn a human lang. JJ and BattleScript is here to stay.">JJ is largely unfinished and will be expanded over time, for now you can use BattleScript to transpile existing built-in JJ examples to 10 other languages. You can even go into "edit" mode or any other language to write and learn a human lang. JJ and BattleScript is here to stay.</p>
             <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#ide">IDE</a>
                 <a href="https://github.com/SuperBox64/JibberJabber" target="_blank">GitHub</a>
                 <a href="https://github.com/SuperBox64/JibberJabber/issues" target="_blank">Issues</a>
                 <a href="https://github.com/SuperBox64/JibberJabber/releases" target="_blank">Releases</a>
@@ -1160,7 +1175,7 @@
                 }
                 el.classList.remove('scrambling');
                 animating = false;
-            }, 300);
+            }, 200);
         }
 
         el.addEventListener('mouseenter', function() {
