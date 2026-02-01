@@ -69,10 +69,12 @@
         }
 
         .logo span {
-            background: var(--accent-gradient);
+            background: linear-gradient(-45deg, #00d4ff, #8b5cf6, #00d4ff, #8b5cf6);
+            background-size: 500% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 24s ease-in-out infinite;
         }
 
         .nav-links {
