@@ -23,8 +23,8 @@
     <meta property="og:title" content="JJ - AI-First Programming Language | BattleScript IDE">
     <meta property="og:description" content="JibberJabber (JJ) - The world's first AI-native development environment. Designed to be written and understood by AI, this allows for less errors in JJ computer source code with strict rules and specifications. Write once, compile to Python, JavaScript, Swift, C, Go, and more.">
     <meta property="og:image" content="https://jj.xcf.ai/og-image.png">
-    <meta property="og:image:width" content="1358">
-    <meta property="og:image:height" content="1366">
+    <meta property="og:image:width" content="1476">
+    <meta property="og:image:height" content="1412">
     <meta property="og:site_name" content="JJ - JibberJabber">
     <meta property="og:locale" content="en_US">
 
@@ -740,7 +740,9 @@
         }
 
         .req-item .text span {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.85rem;
             color: var(--text-secondary);
             font-weight: 400;
@@ -964,21 +966,21 @@
                     <div class="check">✓</div>
                     <div class="text">
                         Xcode Tools
-                        <span><code>xcode-select --install</code></span>
+                        <span><code>xcode-select --install</code><button class="copy-btn" onclick="copyText('xcode-select --install')" title="Copy to clipboard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></span>
                     </div>
                 </div>
                 <div class="req-item">
                     <div class="check">✓</div>
                     <div class="text">
                         Go Lang
-                        <span><code>brew install go</code></span>
+                        <span><code>brew install go</code><button class="copy-btn" onclick="copyText('brew install go')" title="Copy to clipboard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></span>
                     </div>
                 </div>
                 <div class="req-item">
                     <div class="check">✓</div>
                     <div class="text">
                         QuickJS
-                        <span><code>brew install quickjs</code></span>
+                        <span><code>brew install quickjs</code><button class="copy-btn" onclick="copyText('brew install quickjs')" title="Copy to clipboard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></span>
                     </div>
                 </div>
             </div>
@@ -1002,6 +1004,15 @@
         </div>
     </footer>
 <script>
+    function copyText(text) {
+        var btn = event.currentTarget;
+        navigator.clipboard.writeText(text).then(function() {
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(function() {
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+            }, 2000);
+        });
+    }
     function copyHomebrew() {
         var text = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"';
         navigator.clipboard.writeText(text).then(function() {
