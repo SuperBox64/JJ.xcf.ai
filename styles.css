@@ -761,7 +761,7 @@
 
         .footer-tagline.jj-mode {
             position: relative;
-            margin-left: -65px;
+            margin-right: 125px;
             height: 160px;
             font-family: ui-monospace, 'JetBrains Mono', monospace;
             font-style: normal;
