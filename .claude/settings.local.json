@@ -7,7 +7,8 @@
       "Bash(git commit:*)",
       "Bash(open:*)",
       "mcp__xcf-server__build_project",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "WebSearch"
     ]
   }
 }

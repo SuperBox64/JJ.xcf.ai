@@ -617,7 +617,12 @@
         }
 
         .homebrew-install a {
-            color: var(--accent-cyan);
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .homebrew-install a:hover {
+            text-decoration: underline;
         }
 
         .code-copy-wrapper {
