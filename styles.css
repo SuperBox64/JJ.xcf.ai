@@ -232,10 +232,18 @@
         h1 > span {
             display: block;
             padding-bottom: 6px;
-            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #00d4ff 100%);
+            background: linear-gradient(-45deg, #00d4ff, #8b5cf6, #ffffff, #00d4ff, #8b5cf6);
+            background-size: 500% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 12s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .hero-subtitle {
