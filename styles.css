@@ -229,8 +229,10 @@
             letter-spacing: -0.02em;
         }
 
-        h1 span {
-            background: var(--accent-gradient);
+        h1 > span {
+            display: block;
+            padding-bottom: 6px;
+            background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #00d4ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
