@@ -20,24 +20,67 @@
     <meta property="twitter:image" content="https://jj.xcf.ai/og-image.png">
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="jj-stats.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="index.html" class="back-link">&larr; Back to JJ</a>
-            <h1>JJ BattleScript Download Stats</h1>
-            <p>Real-time download statistics from GitHub releases</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="battlescript.png" alt="JJ"><span>JJ.xcf.ai</span></a>
+            <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active');">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#ide">IDE</a></li>
+                <li><a href="index.html#features">Feat</a></li>
+                <li><a href="index.html#languages">Lang</a></li>
+                <li><a href="index.html#download">Get</a></li>
+                <li><a href="index.html#requirements">Sys</a></li>
+                <li><a href="https://chat.xcf.ai" target="_blank">Chat</a></li>
+                <li><a href="jj-stats.html">Stats</a></li>
+                <li><a href="https://github.com/SuperBox64/JibberJabber" target="_blank">Src</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div id="stats-content">
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Loading release statistics...</p>
+    <!-- Stats Section -->
+    <section class="stats-page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Download Stats</h2>
+                <p>Real-time statistics<br>from GitHub releases</p>
+            </div>
+
+            <div id="stats-content">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading release statistics...</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html#ide">IDE</a>
+                <a href="index.html#features">Feat</a>
+                <a href="index.html#languages">Lang</a>
+                <a href="index.html#download">Get</a>
+                <a href="index.html#requirements">Sys</a>
+                <a href="https://chat.xcf.ai" target="_blank">Chat</a>
+                <a href="jj-stats.html">Stats</a>
+                <a href="https://github.com/SuperBox64/JibberJabber" target="_blank">Src</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const GITHUB_API = 'https://api.github.com/repos/superbox64/jibberjabber/releases';
@@ -97,20 +140,20 @@
                     </div>
                     <div class="stat-card">
                         <div class="number">${totalBuilds}</div>
-                        <div class="label">Total Releases</div>
+                        <div class="label">Releases</div>
                     </div>
                     <div class="stat-card">
                         <div class="number">${latestRelease ? extractVersion(allAssets[0]?.tagName || allAssets[0]?.name) : 'N/A'}</div>
-                        <div class="label">Latest Version</div>
+                        <div class="label">Latest</div>
                     </div>
                     <div class="stat-card">
                         <div class="number">${totalBuilds > 0 ? Math.round(totalDownloads / totalBuilds) : 0}</div>
-                        <div class="label">Avg Per Release</div>
+                        <div class="label">Avg/Release</div>
                     </div>
                 </div>
 
                 <div class="releases-section downloads-section">
-                    <h2>10 Most Recent</h2>
+                    <h3>10 Most Recent</h3>
                     <div class="chart-container">
                         <div class="bar-chart">
                             ${allAssets.slice(0, 10).map(asset => `
@@ -127,7 +170,7 @@
                 </div>
 
                 <div class="releases-section downloads-section">
-                    <h2>Top 10 Downloads</h2>
+                    <h3>Top 10 Downloads</h3>
                     <div class="chart-container">
                         <div class="bar-chart">
                             ${[...allAssets].sort((a, b) => b.downloads - a.downloads).slice(0, 10).map(asset => `
@@ -144,7 +187,7 @@
                 </div>
 
                 <div class="releases-section">
-                    <h2>All Releases</h2>
+                    <h3>All Releases</h3>
                     <table class="release-table">
                         <thead>
                             <tr>
@@ -187,7 +230,6 @@
 
         function extractVersion(str) {
             if (!str) return 'N/A';
-            // Match version patterns like 1.0.4.5, v1.0.4.5, BattleScript1.0.4.5.zip
             const match = str.match(/(\d+\.\d+(?:\.\d+)*)/);
             return match ? match[1] : str.replace('.zip', '');
         }
@@ -221,7 +263,6 @@
             fetchStats();
         }
 
-        // Initialize
         fetchStats();
     </script>
 </body>
