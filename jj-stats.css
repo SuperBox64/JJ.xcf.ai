@@ -1,8 +1,12 @@
 /* Stats Page Styles - Dark Mode */
 
 .stats-page {
-    padding: 120px 0 50px;
+    padding: 100px 0 50px;
     min-height: 100vh;
+}
+
+.stats-page .section-header {
+    margin-bottom: 32px;
 }
 
 .stats-summary {
@@ -253,7 +257,7 @@
 /* Responsive */
 @media (max-width: 600px) {
     .stats-page {
-        padding-top: 100px;
+        padding-top: 90px;
     }
 
     .stat-card .number {
