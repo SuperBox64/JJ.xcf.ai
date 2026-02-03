@@ -8,7 +8,8 @@
       "Bash(open:*)",
       "mcp__xcf-server__build_project",
       "Bash(curl:*)",
-      "WebSearch"
+      "WebSearch",
+      "mcp__xcf-server__read_dir"
     ]
   }
 }
