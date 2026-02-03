@@ -6,6 +6,15 @@
     scroll-margin-top: 70px;
 }
 
+.stats-page .section-header a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.stats-page .section-header a:hover {
+    text-decoration: underline;
+}
+
 .stats-summary {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
