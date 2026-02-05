@@ -9,7 +9,8 @@
       "mcp__xcf-server__build_project",
       "Bash(curl:*)",
       "WebSearch",
-      "mcp__xcf-server__read_dir"
+      "mcp__xcf-server__read_dir",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
