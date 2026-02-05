@@ -10,7 +10,8 @@
       "Bash(curl:*)",
       "WebSearch",
       "mcp__xcf-server__read_dir",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "mcp__xcf-server__open_doc"
     ]
   }
 }
